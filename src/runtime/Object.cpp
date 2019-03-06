@@ -648,7 +648,7 @@ bool Object::defineOwnProperty(ExecutionState& state, const ObjectPropertyName& 
 
         if (!shouldDelete) {
             if (newDesc.isDataDescriptor()) {
-                if (desc.isValuePresent()) {
+                if (current.isWritable()) {
                     return setOwnDataPropertyUtilForObjectInner(state, idx, item, newDesc.value());
                 }
             } else {
